@@ -35,6 +35,9 @@ done
 #mv ~/.ssh/config ~/dotfiles_old
 #ln -s $dir/ssh_config ~/.ssh/config
 
-# Configure vim
+# Configure vim, thank you Vundle!
 vim +BundleInstall +qall
+
+echo "Don't forget to manually copy the .ssh directory."
+echo "Don't forget to manually copy the .netrc directory."
 
