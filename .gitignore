@@ -1,0 +1,4 @@
+vim/bundle/**
+vim/doc
+!vim/bundle/vundle
+
