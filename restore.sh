@@ -49,6 +49,9 @@ fi
 cd $dir/vim/bundle/YouCompleteMe
 ./install.sh
 
+# Install oh-my-zsh (externally, not through submodule!)
+git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+
 echo "Don't forget to manually copy the .ssh directory."
 echo "Don't forget to manually copy the .netrc directory."
 
