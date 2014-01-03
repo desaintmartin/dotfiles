@@ -42,6 +42,13 @@ done
 # Configure vim, thank you Vundle!
 vim +BundleInstall +qall
 
+# Setup YouCompleteMe for vundle
+if [ -n $(which apt-get) ]; then
+  sudo apt-get install build-essential cmake python-dev
+fi
+cd $dir/vim/bundle/YouCompleteMe
+./install.sh
+
 echo "Don't forget to manually copy the .ssh directory."
 echo "Don't forget to manually copy the .netrc directory."
 
