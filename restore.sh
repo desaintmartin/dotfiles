@@ -13,6 +13,10 @@ files="bashrc vimrc vim zshrc hgrc slapos pylintrc jshintrc gitconfig gitignore_
 
 ##########
 
+# Setup current git clone
+cd $dir
+git submodule update --init --recursive
+
 # create dotfiles_old in homedir
 echo "Creating $olddir for backup of any existing dotfiles in ~"
 mkdir -p $olddir
