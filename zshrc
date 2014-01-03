@@ -125,7 +125,12 @@ alias git-gui="/usr/local/git/share/git-gui/lib/Git\ Gui.app/Contents/MacOS/Wish
 echo "Welcome, WaterCooled. It's not a bug, it's a feature."
 
 alias screensaver='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
-alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+
+# macvim
+MACVIM=/Applications/MacVim.app
+if [ -d $MACVIM ]; then
+  alias vim='$MACVIM/Contents/MacOS/Vim'
+fi
 
 # SlapOS
 alias buildout-bootstrap="curl 'http://downloads.buildout.org/1/bootstrap.py' | python -S -"
