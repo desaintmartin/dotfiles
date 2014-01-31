@@ -105,7 +105,6 @@ export LS_COLORS
 
 # Non-standard paths :
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-export PATH=/usr/local/git/bin:$PATH
 export PATH=/usr/local/share/npm/bin:$PATH
 export PATH=/Users/cedricdesaintmartin/Documents/Scripts:$PATH
 export PATH=/Users/cedricdesaintmartin/.gem/ruby/1.8/bin:$PATH
@@ -131,6 +130,10 @@ MACVIM=/Applications/MacVim.app
 if [ -d $MACVIM ]; then
   alias vim='$MACVIM/Contents/MacOS/Vim'
 fi
+
+#pyenv
+eval "$(pyenv init -)"
+#source ~/.pyenv/completions/pyenv.zsh
 
 # SlapOS
 alias buildout-bootstrap="curl 'http://downloads.buildout.org/1/bootstrap.py' | python -S -"
