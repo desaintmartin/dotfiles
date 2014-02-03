@@ -109,6 +109,7 @@ export PATH=/usr/local/share/npm/bin:$PATH
 export PATH=/Users/cedricdesaintmartin/Documents/Scripts:$PATH
 export PATH=/Users/cedricdesaintmartin/.gem/ruby/1.8/bin:$PATH
 export PATH=/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin:$PATH
+export PATH=/Applications/FirefoxNightly.app/Contents/MacOS:$PATH
 
 export NODE_PATH=/usr/local/lib/node:/usr/local/share/npm/lib/node_modules/
 
