@@ -6,16 +6,13 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
-" Is it needed with vundle?
-Bundle 'tpope/vim-pathogen'
-execute pathogen#infect()
-
 " Textmate's CMD-T alike
 Bundle 'kien/ctrlp.vim'
 
 Bundle 'bitc/vim-bad-whitespace'
 
 " Auto indentation discovery
+" is it useful?
 Bundle 'ciaranm/detectindent'
 let g:detectindent_preferred_expandtab = 1
 let g:detectindent_preferred_indent = 2
