@@ -6,7 +6,7 @@ export ZSH=$HOME/.oh-my-zsh
 export ZSH_THEME="dieter"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(cp git history osx compleate pip screen ssh-agent textmate brew python)
+plugins=(autojump cp git history osx compleate pip screen ssh-agent textmate brew python)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -167,13 +167,6 @@ elif compctl &>/dev/null; then
   compctl -K _npm_completion npm
 fi
 ###-end-npm-completion-###
-
-# Autojump
-function jump {
-  local newDir=$(JUMPPROFILE=1 command jump "$@");
-  cd "$newDir";
-}
-alias j="jump -a"
 
 # various
 alias publickey="cat ~/.ssh/id_rsa_passphrase.pub | pbcopy"
