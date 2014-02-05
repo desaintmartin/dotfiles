@@ -50,6 +50,13 @@ nnoremap <c-@> :EasyBuffer<CR>
 " Buffer is simply created from :edit file or :badd file
 " Buffer list is listed (outside of plugin) using :buffers
 
+" Rainbow Parentheses
+Bundle 'kien/rainbow_parentheses.vim'
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
 
 filetype plugin indent on
 
