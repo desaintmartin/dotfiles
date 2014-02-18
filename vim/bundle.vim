@@ -23,8 +23,8 @@ autocmd FileType make setlocal noexpandtab
 Bundle 'scrooloose/syntastic'
 
 " Theme
-Bundle 'fugalh/desert.vim'
-colorscheme desert
+Bundle 'altercation/vim-colors-solarized'
+colorscheme solarized
 
 " git wrapper
 Bundle 'tpope/vim-fugitive'
