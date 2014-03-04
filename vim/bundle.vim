@@ -1,57 +1,61 @@
-set nocompatible
-filetype off
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-Bundle 'gmarik/vundle'
+if has('vim_starting')
+  set nocompatible
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+call neobundle#rc(expand('~/.vim/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Textmate's CMD-T alike
-Bundle 'kien/ctrlp.vim'
+NeoBundle 'kien/ctrlp.vim'
 
-Bundle 'bitc/vim-bad-whitespace'
+" bad-whitespace - Highlights whitespace at the end of lines
+NeoBundle 'bitc/vim-bad-whitespace'
 
 " Auto indentation discovery
 " is it useful?
-Bundle 'ciaranm/detectindent'
+NeoBundle 'ciaranm/detectindent'
 let g:detectindent_preferred_expandtab = 1
 let g:detectindent_preferred_indent = 2
 autocmd BufNewFile,BufReadPost * :DetectIndent
 autocmd FileType make setlocal noexpandtab
 
 " Syntax checking
-Bundle 'scrooloose/syntastic'
+NeoBundle 'scrooloose/syntastic'
 
 " Theme
-Bundle 'altercation/vim-colors-solarized'
+NeoBundle 'altercation/vim-colors-solarized'
 colorscheme solarized
 
 " git wrapper
-Bundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-fugitive'
 
 " git diff in gutter
-Bundle 'airblade/vim-gitgutter'
+NeoBundle 'airblade/vim-gitgutter'
 
 "Bundle 'Lokaltog/powerline'
 "set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 "call vam#ActivateAddons(['powerline'])
 
 " Undo manager
-Bundle 'Gundo'
+NeoBundle 'Gundo'
 nnoremap <F5> :GundoToggle<CR>
 
 " Autocompletion, resintall with ./install.sh
-Bundle 'Valloric/YouCompleteMe'
+NeoBundle 'Valloric/YouCompleteMe', {
+            \ 'build' : {
+            \ 'unix' : './install.sh --clang-completer --system-libclang'
+            \ },
+\ }
 
 " Buffer helper
-Bundle 'troydm/easybuffer.vim'
+NeoBundle 'troydm/easybuffer.vim'
 nnoremap <c-@> :EasyBuffer<CR>
 " XXX: why is it <C-Space> as well?
 " Buffer is simply created from :edit file or :badd file
 " Buffer list is listed (outside of plugin) using :buffers
 
 " Rainbow Parentheses
-Bundle 'kien/rainbow_parentheses.vim'
+NeoBundle 'kien/rainbow_parentheses.vim'
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
@@ -59,4 +63,6 @@ au Syntax * RainbowParenthesesLoadBraces
 
 
 filetype plugin indent on
+
+NeoBundleCheck
 

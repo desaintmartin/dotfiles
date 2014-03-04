@@ -39,15 +39,15 @@ done
 #mv ~/.ssh/config ~/dotfiles_old
 #ln -s $dir/ssh_config ~/.ssh/config
 
-# Configure vim, thank you Vundle!
-vim +BundleInstall +qall
-
-# Setup YouCompleteMe for vundle
+# Setup YouCompleteMe dependencies
 if [ -n $(which apt-get) ]; then
   sudo apt-get install build-essential cmake python-dev
 fi
-cd $dir/vim/bundle/YouCompleteMe
-./install.sh
+
+# Configure vim, thank you NeoBundle!
+vim +NeoBundleInstall
+vim +NeoBundleUpdate!
+vim +NeoBundleClean!
 
 # Install oh-my-zsh (externally, not through submodule!)
 git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
