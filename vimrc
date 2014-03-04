@@ -68,7 +68,6 @@ autocmd FileType python set omnifunc=pythoncomplete#Complete
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " Blank character
-"set lcs=tab:\→\ ,eol:↵,trail:~,nbsp:¤,extends:>,precedes:<
 set lcs=tab:\→\ ,trail:~,nbsp:¤,extends:>,precedes:<
 set list
 
