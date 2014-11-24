@@ -6,7 +6,7 @@ export ZSH=$HOME/.oh-my-zsh
 export ZSH_THEME="dieter"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(autojump cp git history osx compleate pip screen ssh-agent textmate brew python)
+plugins=(cp git history osx compleate pip screen ssh-agent textmate brew python)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -170,4 +170,6 @@ fi
 
 # various
 alias publickey="cat ~/.ssh/id_rsa_passphrase.pub | pbcopy"
+alias git-auto-fixup="git add \* && git commit --fixup=HEAD && git rebase -i --autosquash HEAD~2"
 
+fortune | ponysay
