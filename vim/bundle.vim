@@ -61,6 +61,8 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
+NeoBundle 'vim-scripts/DeleteTrailingWhitespace'
+let g:DeleteTrailingWhitespace = 1
 
 filetype plugin indent on
 
