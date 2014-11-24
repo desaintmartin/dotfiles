@@ -54,12 +54,6 @@ set cc=80
 set wildmode=list:longest,list:full
 set complete=slf
 
-if has("unnamedplus")
-  set clipboard=unnamedplus
-elseif has("clipboard")
-  set clipboard=unnamed
-endif
-
 set listchars=trail:◃,nbsp:•
 set list
 
