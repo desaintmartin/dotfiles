@@ -171,5 +171,12 @@ fi
 # various
 alias publickey="cat ~/.ssh/id_rsa_passphrase.pub | pbcopy"
 alias git-auto-fixup="git add \* && git commit --fixup=HEAD && git rebase -i --autosquash HEAD~2"
+function killfrom {
+  if [[ $# -eq 0 ]] ; then
+      echo 'No parameter'
+      return
+  fi
+  ps -ef | grep $1 | grep -v grep | awk '{print $2}' | xargs kill -9
+}
 
 fortune | ponysay
