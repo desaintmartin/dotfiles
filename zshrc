@@ -178,5 +178,13 @@ function killfrom {
   fi
   ps -ef | grep $1 | grep -v grep | awk '{print $2}' | xargs kill -9
 }
+function fullps {
+perl -e '$p=shift;open MAPS, "/proc/$p/maps";
+          ($m)=grep /\[stack\]/, <MAPS>;
+          ($a,$b)=map hex, $m =~ /[\da-f]+/g;
+          open MEM, "/proc/$p/mem";
+          seek MEM,$a,0; read MEM, $c,$b-$a;
+          print((split /\0{2,}/,$c)[-1])' "$1" | tr \\0 \\n | head
+}
 
 fortune | ponysay
