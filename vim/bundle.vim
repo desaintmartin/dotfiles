@@ -21,6 +21,7 @@ autocmd FileType make setlocal noexpandtab
 
 " Syntax checking
 NeoBundle 'scrooloose/syntastic'
+let g:syntastic_python_pylint_args = "--rcfile ~/.pylintrc"
 
 " Theme
 NeoBundle 'altercation/vim-colors-solarized'
@@ -41,11 +42,11 @@ NeoBundle 'Gundo'
 nnoremap <F5> :GundoToggle<CR>
 
 " Autocompletion, resintall with ./install.sh
-NeoBundle 'Valloric/YouCompleteMe', {
-            \ 'build' : {
-            \ 'unix' : './install.sh --clang-completer --system-libclang'
-            \ },
-\ }
+"NeoBundle 'Valloric/YouCompleteMe', {
+"            \ 'build' : {
+"            \ 'unix' : './install.sh --clang-completer --system-libclang'
+"            \ },
+"\ }
 
 " Buffer helper
 NeoBundle 'troydm/easybuffer.vim'
