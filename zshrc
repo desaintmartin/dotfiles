@@ -89,6 +89,7 @@ export LS_COLORS
 # Non-standard paths :
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH=/usr/local/share/npm/bin:$PATH
+export PATH=/usr/local/Cellar/python3/3.5.1/Frameworks/Python.framework/Versions/3.5/bin/:$PATH
 export PATH=/Users/cedricdesaintmartin/Documents/Scripts:$PATH
 export PATH=/Users/cedricdesaintmartin/.gem/ruby/1.8/bin:$PATH
 export PATH=/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin:$PATH
