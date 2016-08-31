@@ -120,12 +120,6 @@ fi
 eval "$(pyenv init -)"
 #source ~/.pyenv/completions/pyenv.zsh
 
-# SlapOS
-alias buildout-bootstrap="curl 'http://downloads.buildout.org/1/bootstrap.py' | python -S -"
-alias buildout-bootstrap2="curl 'http://downloads.buildout.org/2/bootstrap.py' | python -S -"
-export MAKEFLAGS=-j4
-export MACOSX_DEPLOYMENT_TARGET=10.9
-
 ###-begin-npm-completion-###
 #
 # npm command completion script
