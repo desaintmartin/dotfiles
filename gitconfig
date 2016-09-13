@@ -2,7 +2,7 @@
 	email = cedric.dsm@tiolive.com
 	name = Cédric de Saint Martin
 [core]
-	editor = mate -w
+	editor = vim
 	autocrlf = input
 	excludesfile = ~/.gitignore_global
 
