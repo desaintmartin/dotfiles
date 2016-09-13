@@ -39,9 +39,10 @@ done
 #mv ~/.ssh/config ~/dotfiles_old
 #ln -s $dir/ssh_config ~/.ssh/config
 
-# Setup YouCompleteMe dependencies
+# Install common tools and YouCompleteMe dependencies
 if [ -n $(which apt-get) ]; then
-  sudo apt-get install build-essential cmake python-dev
+  sudo apt-get update
+  sudo apt-get install screen vim git htop zsh build-essential cmake python-dev
 fi
 
 # Configure vim, thank you NeoBundle!
