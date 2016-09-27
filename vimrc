@@ -86,8 +86,8 @@ set foldcolumn=0
 set foldclose=
 set foldmethod=indent
 set foldnestmax=10
-set foldlevel=2
-set fillchars=vert:\|,fold:\ 
+set foldlevel=10
+set fillchars=vert:\|,fold:\
 set foldminlines=5
 
 " Code folding toggle
