@@ -182,4 +182,8 @@ perl -e '$p=shift;open MAPS, "/proc/$p/maps";
           print((split /\0{2,}/,$c)[-1])' "$1" | tr \\0 \\n | head
 }
 
+# Setting for the new UTF-8 terminal support in Lion
+LC_CTYPE=en_US.UTF-8
+LC_ALL=en_US.UTF-8
+
 fortune | ponysay
