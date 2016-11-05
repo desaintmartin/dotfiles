@@ -56,11 +56,8 @@ nnoremap <c-@> :EasyBuffer<CR>
 " Buffer list is listed (outside of plugin) using :buffers
 
 " Rainbow Parentheses
-NeoBundle 'kien/rainbow_parentheses.vim'
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+NeoBundle 'luochen1990/rainbow'
+let g:rainbow_active = 1
 
 NeoBundle 'vim-scripts/DeleteTrailingWhitespace'
 let g:DeleteTrailingWhitespace = 1
