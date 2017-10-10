@@ -50,8 +50,10 @@ vim +NeoBundleInstall
 vim +NeoBundleUpdate!
 vim +NeoBundleClean!
 
-# Install oh-my-zsh (externally, not through submodule!)
-git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+# Install antigen
+curl -L git.io/antigen > ~/.antigen.zsh
+echo -e "source ~/antigen.zsh\n$(cat ~/dotfiles/zshrc)" > ~/dotfiles/zshrc
+~/antigen.zsh reset
 
 echo "Don't forget to manually copy the .ssh directory."
 echo "Don't forget to manually copy the .netrc directory."
