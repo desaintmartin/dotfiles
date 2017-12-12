@@ -52,8 +52,11 @@ vim +NeoBundleClean!
 
 # Install antigen
 curl -L git.io/antigen > ~/.antigen.zsh
-echo -e "source ~/antigen.zsh\n$(cat ~/dotfiles/zshrc)" > ~/dotfiles/zshrc
-~/antigen.zsh reset
+chmod +x ~/.antigen.zsh
+echo "source ~/.antigen.zsh\n$(cat ~/dotfiles/zshrc)" > ~/dotfiles/zshrc
+zsh ~/.antigen.zsh reset
+
+chsh -s /usr/bin/zsh
 
 echo "Don't forget to manually copy the .ssh directory."
 echo "Don't forget to manually copy the .netrc directory."
