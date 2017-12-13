@@ -94,20 +94,5 @@ alias l='ls'
 alias ll='ls -l'
 alias la='ls -A'
 
-# Colors
-export WHITE="\\033[0m"
-export RED="\\033[1;31m"
-export GREEN="\\033[1;32m"
-export BLUE="\\033[1;34m"
-export ORANGE="\\033[0m\\033[31m"
-
-
-# Personnalisation du PS1 + git
-GIT_PS1_SHOWDIRTYSTATE=true
-export PS1="\n[\$(date +%H:%M)] "$GREEN'\h'$WHITE':\['$BLUE'\]\w\['$ORANGE'\]$(__git_ps1) '$WHITE'\]$ '
-
 # Message d'accueil : 
 echo "Welcome, WaterCooled. It's not a bug, it's a feature."
-
-alias screensaver='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
-alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
