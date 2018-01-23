@@ -53,7 +53,7 @@ vim +NeoBundleClean!
 # Install antigen
 curl -L git.io/antigen > ~/.antigen.zsh
 chmod +x ~/.antigen.zsh
-echo "source ~/.antigen.zsh\n$(cat ~/dotfiles/zshrc)" > ~/dotfiles/zshrc
+echo "source ~/.antigen.zsh\n" | cat - ~/dotfiles/zshrc > ~/dotfiles/zshrc
 zsh ~/.antigen.zsh reset
 
 chsh -s /usr/bin/zsh
