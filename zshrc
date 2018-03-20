@@ -3,7 +3,7 @@
 #plugins=(cp git history osx compleate screen ssh-agent textmate brew python sudo)
 #source $ZSH/oh-my-zsh.sh
 
-source /usr/local/Cellar/antigen/2.2.1/share/antigen/antigen.zsh
+source /usr/local/Cellar/antigen/2.2.3/share/antigen/antigen.zsh
 antigen use oh-my-zsh
 antigen bundles <<EOBUNDLES
     cp
@@ -38,10 +38,8 @@ export SAVEHIST=100000
 # Non-standard paths :
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH=/usr/local/share/npm/bin:$PATH
-export PATH=/usr/local/Cellar/python3/3.5.1/Frameworks/Python.framework/Versions/3.5/bin/:$PATH
 export PATH=/Users/cedricdesaintmartin/Documents/Scripts:$PATH
 export PATH=/Users/cedricdesaintmartin/.gem/ruby/1.8/bin:$PATH
-export PATH=/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin:$PATH
 export PATH=/Applications/FirefoxNightly.app/Contents/MacOS:$PATH
 
 export NODE_PATH=/usr/local/lib/node:/usr/local/share/npm/lib/node_modules/
