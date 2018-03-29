@@ -1,9 +1,8 @@
-#export ZSH=$HOME/.oh-my-zsh
-#export ZSH_THEME="dieter"
-#plugins=(cp git history osx compleate screen ssh-agent textmate brew python sudo)
-#source $ZSH/oh-my-zsh.sh
-
-source /usr/local/Cellar/antigen/2.2.3/share/antigen/antigen.zsh
+if [ -f "/usr/share/zsh-antigen/antigen.zsh" ]; then;
+  source /usr/share/zsh-antigen/antigen.zsh
+else
+  source /usr/local/share/antigen/antigen.zsh
+fi
 antigen use oh-my-zsh
 antigen bundles <<EOBUNDLES
     cp
