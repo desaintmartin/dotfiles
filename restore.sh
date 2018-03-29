@@ -8,7 +8,6 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-# XXX: add irssi
 files="bashrc vimrc vim zshrc hgrc slapos pylintrc jshintrc gitconfig gitignore_global"    # list of files/folders to symlink in homedir
 
 ##########
@@ -42,18 +41,15 @@ done
 # Install common tools and YouCompleteMe dependencies
 if [ -n $(which apt-get) ]; then
   sudo apt-get update
-  sudo apt-get install screen vim git htop iotop iftop zsh build-essential cmake python-dev curl mosh
+  sudo apt-get install screen vim git htop iotop iftop zsh build-essential cmake python-dev curl mosh zsh-antigen
 fi
 
 # Configure vim, thank you NeoBundle!
-vim +NeoBundleInstall
-vim +NeoBundleUpdate!
-vim +NeoBundleClean!
+vim +NeoBundleInstall +qall
+vim +NeoBundleUpdate! +qall
+vim +NeoBundleClean! +qall
 
 # Install antigen
-curl -L git.io/antigen > ~/.antigen.zsh
-chmod +x ~/.antigen.zsh
-echo "source ~/.antigen.zsh\n" | cat - ~/dotfiles/zshrc > ~/dotfiles/zshrc
 zsh ~/.antigen.zsh reset
 
 chsh -s /usr/bin/zsh
