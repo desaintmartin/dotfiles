@@ -4,6 +4,7 @@ else
   source /usr/local/share/antigen/antigen.zsh
 fi
 antigen use oh-my-zsh
+antigen theme https://github.com/iam4x/zsh-iterm-touchbar
 antigen bundles <<EOBUNDLES
     cp
     history
