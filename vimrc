@@ -1,6 +1,5 @@
 set nocompatible
 
-set background=dark
 filetype indent plugin on
 
 let g:miniBufExplMapWindowNavVim = 1
@@ -96,4 +95,5 @@ noremap <space> :call ToggleFold()<CR>
 " Vundle (package manager, call :BundleInstall in vim)
 source ~/.vim/bundle.vim
 
+highlight Normal ctermfg=grey ctermbg=233
 
