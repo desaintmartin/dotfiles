@@ -50,7 +50,7 @@ vim +NeoBundleUpdate! +qall
 vim +NeoBundleClean! +qall
 
 # Install antigen
-zsh ~/.antigen.zsh reset
+zsh /usr/share/zsh-antigen/antigen.zsh reset
 
 chsh -s /usr/bin/zsh
 
