@@ -59,3 +59,5 @@ docs/_build/
 pyvenv.cfg
 pip-selfcheck.json
 
+.DS_Store
+

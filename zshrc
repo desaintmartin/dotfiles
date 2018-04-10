@@ -17,6 +17,7 @@ antigen bundles <<EOBUNDLES
     brew
     python
     sudo
+    kubectl
 
     # Syntax highlighting bundle.
     zsh-users/zsh-syntax-highlighting
@@ -91,4 +92,14 @@ LC_ALL=en_US.UTF-8
 
 # thefuck
 eval $(thefuck --alias)
+
+# virtualenv
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
+# Python
+alias simplehttpserver="python -m SimpleHTTPServer 8080"
+
+# Wiremind
+alias docker-skypallet-backend='docker build -t wiremind/skypallet-backend . && docker run -p 80:80 --env-file ~/Desktop/Wiremind_docker.conf -v $(pwd):/app -it --rm --name my-skypallet-backend wiremind/skypallet-backend'
+alias docker-skypallet-backend-inspect='docker exec -i -t my-skypallet-backend /bin/bash'
 
