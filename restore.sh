@@ -41,7 +41,7 @@ done
 # Install common tools and YouCompleteMe dependencies
 if [ -n $(which apt-get) ]; then
   sudo apt-get update
-  sudo apt-get install screen vim git htop iotop iftop zsh build-essential cmake python-dev curl mosh zsh-antigen
+  sudo apt-get install screen vim git htop iotop iftop zsh build-essential cmake python-dev curl mosh zsh-antigen python-pkg-resources thefuck
 fi
 
 # Configure vim, thank you NeoBundle!
