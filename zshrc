@@ -103,3 +103,6 @@ alias simplehttpserver="python -m SimpleHTTPServer 8080"
 alias docker-skypallet-backend='docker build -t wiremind/skypallet-backend . && docker run -p 80:80 --env-file ~/Desktop/Wiremind_docker.conf -v $(pwd):/app -it --rm --name my-skypallet-backend wiremind/skypallet-backend'
 alias docker-skypallet-backend-inspect='docker exec -i -t my-skypallet-backend /bin/bash'
 
+# iTerm2
+source ~/dotfiles/iterm2_shell_integration.zsh
+
