@@ -42,11 +42,11 @@ NeoBundle 'Gundo'
 nnoremap <F5> :GundoToggle<CR>
 
 " Autocompletion, resintall with ./install.sh
-"NeoBundle 'Valloric/YouCompleteMe', {
-"            \ 'build' : {
-"            \ 'unix' : './install.sh --clang-completer --system-libclang'
-"            \ },
-"\ }
+NeoBundle 'Valloric/YouCompleteMe', {
+            \ 'build' : {
+            \ 'unix' : './install.sh --clang-completer --system-libclang'
+            \ },
+\ }
 
 " Buffer helper
 NeoBundle 'troydm/easybuffer.vim'
