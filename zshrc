@@ -18,6 +18,7 @@ antigen bundles <<EOBUNDLES
     python
     sudo
     kubectl
+    helm
 
     # Syntax highlighting bundle.
     zsh-users/zsh-syntax-highlighting
@@ -42,6 +43,7 @@ export PATH=/usr/local/share/npm/bin:$PATH
 export PATH=/Users/cedricdesaintmartin/Documents/Scripts:$PATH
 export PATH=/Users/cedricdesaintmartin/.gem/ruby/1.8/bin:$PATH
 export PATH=/Applications/FirefoxNightly.app/Contents/MacOS:$PATH
+export PATH=/Users/cedricdesaintmartin/.cargo/bin:$PATH
 
 export NODE_PATH=/usr/local/lib/node:/usr/local/share/npm/lib/node_modules/
 
@@ -105,4 +107,8 @@ alias docker-skypallet-backend-inspect='docker exec -i -t my-skypallet-backend /
 
 # iTerm2
 source ~/dotfiles/iterm2_shell_integration.zsh
+
+# SSH Agent
+ssh-add -K ~/.ssh/id_rsa
+ssh-add -A
 

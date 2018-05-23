@@ -15,13 +15,14 @@ NeoBundle 'bitc/vim-bad-whitespace'
 " is it useful?
 NeoBundle 'ciaranm/detectindent'
 let g:detectindent_preferred_expandtab = 1
-let g:detectindent_preferred_indent = 2
+let g:detectindent_preferred_indent = 4
 autocmd BufNewFile,BufReadPost * :DetectIndent
 autocmd FileType make setlocal noexpandtab
 
 " Syntax checking
-NeoBundle 'scrooloose/syntastic'
-let g:syntastic_python_pylint_args = "--rcfile ~/.pylintrc"
+NeoBundle 'vim-syntastic/syntastic'
+"let g:syntastic_python_pylint_args = "--rcfile ~/.pylintrc"
+let g:syntastic_python_checkers = ['flake8']
 
 " Theme
 NeoBundle 'altercation/vim-colors-solarized'

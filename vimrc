@@ -97,3 +97,5 @@ source ~/.vim/bundle.vim
 
 highlight Normal ctermfg=grey ctermbg=233
 
+" Integrate with system clipboard
+set clipboard=unnamed
