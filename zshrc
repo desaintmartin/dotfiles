@@ -6,19 +6,20 @@ fi
 antigen use oh-my-zsh
 antigen theme https://github.com/iam4x/zsh-iterm-touchbar
 antigen bundles <<EOBUNDLES
-    cp
+    common-aliases
     history
     osx
-    compleate
-    npm
+    compleat
     screen
     ssh-agent
     textmate
     brew
+    pip
     python
-    sudo
+    docker
     kubectl
     helm
+    autojump
 
     # Syntax highlighting bundle.
     zsh-users/zsh-syntax-highlighting
@@ -32,31 +33,34 @@ EOBUNDLES
 antigen theme dieter
 antigen apply
 
-# Customize to your needs...
+# Setting for the new UTF-8 terminal support in Lion
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
-export HISTSIZE=100000         # Increases size of history
-export SAVEHIST=100000
+export HISTSIZE=1000000         # Increases size of history
+export SAVEHIST=1000000
 
 # Non-standard paths :
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH=/usr/local/share/npm/bin:$PATH
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH=/usr/local/opt/curl/bin:$PATH
 export PATH=/Users/cedricdesaintmartin/Documents/Scripts:$PATH
 export PATH=/Users/cedricdesaintmartin/.gem/ruby/1.8/bin:$PATH
 export PATH=/Applications/FirefoxNightly.app/Contents/MacOS:$PATH
 export PATH=/Users/cedricdesaintmartin/.cargo/bin:$PATH
+export PATH="$HOME/.pyenv/shims:$PATH"
 
+# node.js
 export NODE_PATH=/usr/local/lib/node:/usr/local/share/npm/lib/node_modules/
 
-# ls aliases
-alias l='ls'
-alias ll='ls -l'
-alias la='ls -A'
+# Go
+export GOPATH=$HOME/go
 
-#git-gui alias
+# git alias
+alias git-branch-delete="git branch -D `git branch --merged | grep -v \* | xargs`"
 alias git-gui="/usr/local/git/share/git-gui/lib/Git\ Gui.app/Contents/MacOS/Wish"
-
-# Message d'accueil :
-echo "Welcome, WaterCooled. It's not a bug, it's a feature."
+alias git-auto-fixup="git add \* && git commit --fixup=HEAD && git rebase -i --autosquash HEAD~2"
 
 # macvim
 MACVIM=/Applications/MacVim.app
@@ -71,7 +75,6 @@ eval "$(pyenv init -)"
 
 # various
 alias publickey="cat ~/.ssh/id_rsa.pub | pbcopy"
-alias git-auto-fixup="git add \* && git commit --fixup=HEAD && git rebase -i --autosquash HEAD~2"
 function killfrom {
   if [[ $# -eq 0 ]] ; then
       echo 'No parameter'
@@ -88,27 +91,16 @@ perl -e '$p=shift;open MAPS, "/proc/$p/maps";
           print((split /\0{2,}/,$c)[-1])' "$1" | tr \\0 \\n | head
 }
 
-# Setting for the new UTF-8 terminal support in Lion
-LC_CTYPE=en_US.UTF-8
-LC_ALL=en_US.UTF-8
-
 # thefuck
 eval $(thefuck --alias)
 
-# virtualenv
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-
 # Python
 alias simplehttpserver="python -m SimpleHTTPServer 8080"
-
-# Wiremind
-alias docker-skypallet-backend='docker build -t wiremind/skypallet-backend . && docker run -p 80:80 --env-file ~/Desktop/Wiremind_docker.conf -v $(pwd):/app -it --rm --name my-skypallet-backend wiremind/skypallet-backend'
-alias docker-skypallet-backend-inspect='docker exec -i -t my-skypallet-backend /bin/bash'
 
 # iTerm2
 source ~/dotfiles/iterm2_shell_integration.zsh
 
 # SSH Agent
-ssh-add -K ~/.ssh/id_rsa
-ssh-add -A
+#ssh-add -K ~/.ssh/id_rsa
+#ssh-add -A
 

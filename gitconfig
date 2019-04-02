@@ -1,6 +1,7 @@
 [user]
 	email = cdesaintmartin@wiremind.fr
 	name = Cédric de Saint Martin
+	signingkey = 6B55FE19830F4B4FD104783FD0835CB331C4CA8C
 [core]
 	editor = vim
 	autocrlf = input
@@ -43,6 +44,7 @@ tool = FileMerge
   lol = log --graph --decorate --pretty=oneline --abbrev-commit
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
   ls = ls-files
+  branches = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes
 
   # Show files ignored by git:
   ign = ls-files -o -i --exclude-standard
@@ -50,3 +52,17 @@ tool = FileMerge
 	clean = git media clean %f
 	smudge = git media smudge %f
 	required = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[help]
+	autocorrect = 8
+[rebase]
+  autosquash = true
+
+[diff]
+  colorMoved = zebra
+[protocol]
+	version = 2

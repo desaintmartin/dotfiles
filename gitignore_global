@@ -1,9 +1,22 @@
+# pyenv
+.python-version
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 
+venv
+venv3.7
+pip-cache
+.pytest_cache
+.mypy_cache
+.vscode
+
 # C extensions
 *.so
+
+# Vim
+*.swp
 
 # Distribution / packaging
 bin/
