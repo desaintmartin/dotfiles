@@ -8,7 +8,7 @@ brew cask
 brew cask install iterm2 istat-menus quicksilver nextcloud bettertouchtool spectacle clipy
 brew cask install caskroom/versions/firefox-developer-edition
 
-mas install 497799835 # Xcode
+#mas install 497799835 # Xcode
 
 ./restore.sh
 

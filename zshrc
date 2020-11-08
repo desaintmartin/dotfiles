@@ -105,7 +105,7 @@ perl -e '$p=shift;open MAPS, "/proc/$p/maps";
 }
 
 # thefuck
-eval $(thefuck --alias)
+# eval $(thefuck --alias)
 
 # iTerm2
 source ~/dotfiles/iterm2_shell_integration.zsh
@@ -122,7 +122,8 @@ fi
 export PS1
 export SHELL
 
-alias mayo="/Users/cedricdesaintmartin/Desktop/Wiremind/devops/mayo/venv/bin/mayo"
+alias mayo="/Users/cedricdesaintmartin/Desktop/Wiremind/devops/mayo/.venv/bin/mayo"
+alias "cluster-manager-review-gitlab-variables-substitution"="/Users/cedricdesaintmartin/Desktop/Wiremind/devops/cluster-manager/.venv/bin/cluster-manager-review-gitlab-variables-substitution"
 
 alias ls=lsd
 
