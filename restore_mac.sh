@@ -16,6 +16,9 @@ brew cask install homebrew/cask-versions/firefox-developer-edition
 
 [ -n "$(xcode-select -p)" ] || xcode-select --install
 
+mkdir -p ~/Library/Application\ Support/Spectacle
+ln -s ~/dotfiles/mac/Shortcuts.json ~/Library/Application\ Support/Spectacle/Shortcuts.json
+
 ./restore.sh
 
 ZSH_SHELL="/usr/local/bin/zsh"
