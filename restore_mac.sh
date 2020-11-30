@@ -1,7 +1,10 @@
 #!/bin/sh
 
+set -e
+set -x
+
 # Homebrew
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew --version || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew install youtube-dl autojump pyenv zsh tmux kubernetes-cli kubernetes-helm gnu-sed vim htop antigen thefuck mas nodejs yarn mosh
 
 brew cask install iterm2 istat-menus quicksilver nextcloud bettertouchtool spectacle clipy
@@ -11,10 +14,11 @@ brew cask install homebrew/cask-versions/firefox-developer-edition
 
 #mas install 497799835 # Xcode
 
-xcode-select --install
+[ -n "$(xcode-select -p)" ] || xcode-select --install
 
 ./restore.sh
 
-echo "\n/usr/local/bin/zsh" | sudo tee -a /etc/shells
+ZSH_SHELL="/usr/local/bin/zsh"
+[ -n "$(grep $ZSH_SHELL /etc/shells)" ] || echo "\n/usr/local/bin/zsh" | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/zsh
 
