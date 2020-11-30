@@ -123,8 +123,8 @@ export PS1
 export SHELL
 
 alias mayo="/Users/cedricdesaintmartin/Desktop/Wiremind/devops/mayo/.venv/bin/mayo"
-alias "cluster-manager-review-gitlab-variables-substitution"="/Users/cedricdesaintmartin/Desktop/Wiremind/devops/cluster-manager/.venv/bin/cluster-manager-review-gitlab-variables-substitution"
 
+PATH=$PATH:/Users/cedricdesaintmartin/Desktop/Wiremind/devops/cluster-manager/.venv/bin
 alias ls=lsd
 
 # Google Cloud
