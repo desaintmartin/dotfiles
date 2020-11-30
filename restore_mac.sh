@@ -19,6 +19,9 @@ brew cask install homebrew/cask-versions/firefox-developer-edition
 mkdir -p ~/Library/Application\ Support/Spectacle
 ln -s ~/dotfiles/mac/Shortcuts.json ~/Library/Application\ Support/Spectacle/Shortcuts.json
 
+ln -s ~/dotfiles/mac/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
+
+
 ./restore.sh
 
 ZSH_SHELL="/usr/local/bin/zsh"
