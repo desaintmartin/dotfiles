@@ -65,8 +65,12 @@ export CPPFLAGS="-I/usr/local/opt/openssl/include"
 alias git-gui="/usr/local/git/share/git-gui/lib/Git\ Gui.app/Contents/MacOS/Wish"
 alias ga="git commit --amend -a -C HEAD"
 alias gr="git rebase -i origin/master"
-alias gd="git checkout master && git fetch origin --prune && git branch | grep -v master | xargs git branch -D && git reset --hard origin/master"
-alias gdu="git checkout master && git fetch upstream --prune && git branch | grep -v master | xargs git branch -D && git reset --hard upstream/master"
+alias gd='export BRANCH=master; \
+  git rev-parse --verify main > /dev/null && export BRANCH=main; \
+  git checkout $BRANCH && git fetch origin --prune && git branch | grep -v $BRANCH | xargs git branch -D && git reset --hard origin/$BRANCH'
+alias gdu='export BRANCH=master; \
+  git rev-parse --verify main > /dev/null && export BRANCH=main; \
+  git checkout master && git fetch upstream --prune && git branch | grep -v master | xargs git branch -D && git reset --hard upstream/master'
 
 # pyenv
 eval "$(pyenv init -)"
@@ -121,6 +125,8 @@ if [ -n "$MAYO_PS1" ]; then
 fi
 export PS1
 export SHELL
+
+. ~/mayo-complete.sh
 
 alias mayo="/Users/cedricdesaintmartin/Desktop/Wiremind/devops/mayo/.venv/bin/mayo"
 
