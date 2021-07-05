@@ -48,6 +48,7 @@ tool = FileMerge
 
   # Show files ignored by git:
   ign = ls-files -o -i --exclude-standard
+	automr = push -o merge_request.create -o merge_request.merge_when_pipeline_succeeds -o merge_request.remove_source_branch -u origin HEAD
 [filter "media"]
 	clean = git media clean %f
 	smudge = git media smudge %f
