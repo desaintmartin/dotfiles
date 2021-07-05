@@ -47,7 +47,8 @@ export PATH=/usr/local/opt/gnu-sed/libexec/gnubin:$PATH
 export PATH=/usr/local/opt/curl/bin:$PATH
 export PATH=/Users/cedricdesaintmartin/Documents/Scripts:$PATH
 export PATH=/Users/cedricdesaintmartin/.gem/ruby/1.8/bin:$PATH
-export PATH=/Applications/FirefoxNightly.app/Contents/MacOS:$PATH
+export PATH=/Users/cedric/Documents/Scripts:$PATH
+export PATH=/Users/cedric/.gem/ruby/1.8/bin:$PATH
 export PATH=/Users/cedricdesaintmartin/.cargo/bin:$PATH
 export PATH=/usr/local/Cellar/telepresence/0.100/libexec:$PATH
 
@@ -70,11 +71,16 @@ alias gd='export BRANCH=master; \
   git checkout $BRANCH && git fetch origin --prune && git branch | grep -v $BRANCH | xargs git branch -D && git reset --hard origin/$BRANCH'
 alias gdu='export BRANCH=master; \
   git rev-parse --verify main > /dev/null && export BRANCH=main; \
-  git checkout master && git fetch upstream --prune && git branch | grep -v master | xargs git branch -D && git reset --hard upstream/master'
+  git checkout $BRANCH && git fetch upstream --prune && git branch | grep -v $BRANCH | xargs git branch -D && git reset --hard upstream/$BRANCH'
 
 # pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+# Load pyenv into the shell by adding
+# the following to ~/.zshrc:
 eval "$(pyenv init -)"
-export PATH="$HOME/.pyenv/shims:$PATH"
+#export PATH="$HOME/.pyenv/shims:$PATH"
 
 # python venv
 function jv() {
@@ -91,7 +97,7 @@ function jv() {
 }
 
 # various
-alias publickey="cat ~/.ssh/id_rsa.pub | pbcopy"
+alias publickey="cat ~/.ssh/id_ed25519.pub | pbcopy"
 function killfrom {
   if [[ $# -eq 0 ]] ; then
       echo 'No parameter'
@@ -126,11 +132,10 @@ fi
 export PS1
 export SHELL
 
-. ~/mayo-complete.sh
-
-alias mayo="/Users/cedricdesaintmartin/Desktop/Wiremind/devops/mayo/.venv/bin/mayo"
+alias mayo="/Users/cedric/Desktop/Wiremind/devops/mayo/.venv/bin/mayo"
 
 PATH=$PATH:/Users/cedricdesaintmartin/Desktop/Wiremind/devops/cluster-manager/.venv/bin
+PATH=$PATH:/Users/cedric/Desktop/Wiremind/devops/cluster-manager/.venv/bin
 alias ls=lsd
 
 # Google Cloud
