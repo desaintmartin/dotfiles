@@ -67,10 +67,10 @@ alias git-gui="/usr/local/git/share/git-gui/lib/Git\ Gui.app/Contents/MacOS/Wish
 alias ga="git commit --amend -a -C HEAD"
 alias gr="git rebase -i origin/master"
 alias gd='export BRANCH=master; \
-  git rev-parse --verify main > /dev/null && export BRANCH=main; \
+  git rev-parse --verify main > /dev/null 2>&1 && export BRANCH=main; \
   git checkout $BRANCH && git fetch origin --prune && git branch | grep -v $BRANCH | xargs git branch -D && git reset --hard origin/$BRANCH'
 alias gdu='export BRANCH=master; \
-  git rev-parse --verify main > /dev/null && export BRANCH=main; \
+  git rev-parse --verify main > /dev/null 2>&1 && export BRANCH=main; \
   git checkout $BRANCH && git fetch upstream --prune && git branch | grep -v $BRANCH | xargs git branch -D && git reset --hard upstream/$BRANCH'
 
 # pyenv

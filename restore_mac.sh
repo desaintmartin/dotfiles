@@ -7,11 +7,11 @@ set -x
 brew --version || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew install youtube-dl autojump pyenv zsh tmux kubernetes-cli kubernetes-helm gnu-sed vim htop antigen thefuck mas nodejs yarn mosh lsd krew
 
-brew cask install iterm2 gimp textmate istat-menus quicksilver nextcloud bettertouchtool spectacle clipy amethyst homebrew/cask-drivers/logitech-options homebrew/cask-versions/firefox-developer-edition istat-menus nextcloud docker google-cloud-sdk quicksilver grandperspective spectacle visual-studio-code the-unarchiver wireshark buttercup kubernetic xquartz clipy google-drive-file-stream macdown google-chat
+brew install --cask sensiblesidebuttons iterm2 gimp textmate istat-menus quicksilver nextcloud bettertouchtool spectacle clipy amethyst homebrew/cask-drivers/logitech-options homebrew/cask-versions/firefox-developer-edition docker google-cloud-sdk grandperspective spectacle visual-studio-code the-unarchiver wireshark buttercup kubernetic xquartz clipy google-drive-file-stream macdown
 # Optional
 # brew cask install cyberduck vlc android-platform-tools github osxfuse webex-meetings bettertouchtool dolphin google-chrome pycharm transmission veracrypt zoom console microsoft-teams
 brew tap homebrew/cask-fonts
-brew cask install font-hack-nerd-font
+brew install --cask font-hack-nerd-font
 
 #mas install 497799835 # Xcode
 
