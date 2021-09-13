@@ -27,6 +27,7 @@ brew install --cask \
   istat-menus \
   iterm2 \
   kubernetic \
+  kubecontext \
   macdown
   microsoft-teams \
   nextcloud \
