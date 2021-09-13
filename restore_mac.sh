@@ -7,22 +7,48 @@ set -x
 brew --version || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew install youtube-dl autojump pyenv zsh tmux kubernetes-cli kubernetes-helm gnu-sed vim htop antigen thefuck mas nodejs yarn mosh lsd krew
 
-brew install --cask sensiblesidebuttons iterm2 gimp textmate istat-menus quicksilver nextcloud bettertouchtool spectacle clipy amethyst homebrew/cask-drivers/logitech-options homebrew/cask-versions/firefox-developer-edition docker google-cloud-sdk grandperspective spectacle visual-studio-code the-unarchiver wireshark buttercup kubernetic xquartz clipy google-drive-file-stream macdown
-# Optional
-# brew cask install cyberduck vlc android-platform-tools github osxfuse webex-meetings bettertouchtool dolphin google-chrome pycharm transmission veracrypt zoom console microsoft-teams
+brew install --cask \
+  amethyst \
+  android-platform-tools \
+  bettertouchtool \
+  buttercup \
+  clipy \
+  console \
+  cyberduck \
+  docker \
+  gimp \
+  github \
+  google-chrome \
+  google-cloud-sdk \
+  google-drive-file-stream \
+  grandperspective \
+  homebrew/cask-drivers/logitech-options \
+  homebrew/cask-versions/firefox-developer-edition \
+  istat-menus \
+  iterm2 \
+  kubernetic \
+  macdown
+  microsoft-teams \
+  nextcloud \
+  pycharm \
+  quicksilver \
+  rectangle \
+  sensiblesidebuttons \
+  spectacle \
+  textmate \
+  the-unarchiver \
+  visual-studio-code \
+  vlc \
+  webex-meetings \
+  wireshark \
+  xquartz
+  zoom \
 brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font
 
 #mas install 497799835 # Xcode
 
 [ -n "$(xcode-select -p)" ] || xcode-select --install
-
-mkdir -p ~/Library/Application\ Support/Spectacle
-PREFERENCE_SOURCE=~/dotfiles/mac/Shortcuts.json
-PREFERENCE_DESTINATION=~/Library/ApplicationSupport/Spectacle/Shortcuts.json
-if [ ! -f "$PREFERENCE_DESTINATION" ]; then
-  ln -s "$PREFERENCE_SOURCE" "$PREFERENCE_DESTINATION"
-fi
 
 PREFERENCE_SOURCE=~/dotfiles/mac/com.googlecode.iterm2.plist
 PREFERENCE_DESTINATION=~/Library/Preferences/com.googlecode.iterm2.plist
