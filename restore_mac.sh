@@ -28,7 +28,7 @@ brew install --cask \
   iterm2 \
   kubernetic \
   kubecontext \
-  macdown
+  macdown \
   microsoft-teams \
   nextcloud \
   pycharm \
@@ -42,8 +42,8 @@ brew install --cask \
   vlc \
   webex-meetings \
   wireshark \
-  xquartz
-  zoom \
+  xquartz \
+  zoom
 brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font
 
@@ -58,7 +58,7 @@ if [ ! -f "$PREFERENCE_DESTINATION" ]; then
 fi
 
 
-./restore.sh
+# ./restore.sh
 
 ZSH_SHELL="/usr/local/bin/zsh"
 [ -n "$(grep $ZSH_SHELL /etc/shells)" ] || echo "\n/usr/local/bin/zsh" | sudo tee -a /etc/shells
