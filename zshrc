@@ -33,6 +33,9 @@ EOBUNDLES
 antigen theme dieter
 antigen apply
 
+# For tricking python packages into believing they are in macos 10.x to avoid compiling hell
+export SYSTEM_VERSION_COMPAT=1
+
 # Setting for the new UTF-8 terminal support in Lion
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -144,5 +147,8 @@ source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.
 
 # kubernetes
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+kssh() {
+  ssh core@$(kubectl get nodes -o custom-columns='ip:status.addresses[0].address' --no-headers $1)
+}
 
 export WIREMIND_USERNAME=cdesaintmartin
