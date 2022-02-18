@@ -135,7 +135,7 @@ fi
 export PS1
 export SHELL
 
-alias mayo="/Users/cedric/Desktop/Wiremind/devops/mayo/.venv/bin/mayo"
+alias mayo="/Users/cedricdesaintmartin/Desktop/Wiremind/devops/mayo/.venv/bin/mayo"
 
 PATH=$PATH:/Users/cedricdesaintmartin/Desktop/Wiremind/devops/cluster-manager/.venv/bin
 PATH=$PATH:/Users/cedric/Desktop/Wiremind/devops/cluster-manager/.venv/bin
@@ -148,7 +148,10 @@ source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.
 # kubernetes
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 kssh() {
-  ssh core@$(kubectl get nodes -o custom-columns='ip:status.addresses[0].address' --no-headers $1)
+  IP=$(kubectl get nodes -o custom-columns='ip:status.addresses[0].address' --no-headers $1)
+  ssh core@$IP $@[2,-1]
 }
 
 export WIREMIND_USERNAME=cdesaintmartin
+
+complete -o nospace -C /usr/local/bin/mc mc
