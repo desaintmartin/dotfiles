@@ -3,7 +3,7 @@ if [ -f "/usr/share/zsh-antigen/antigen.zsh" ]; then;
 else
   source /usr/local/share/antigen/antigen.zsh
 fi
-antigen use oh-my-zsh
+antigen use ohmyzsh/ohmyzsh
 #antigen theme https://github.com/iam4x/zsh-iterm-touchbar
 antigen bundles <<EOBUNDLES
     common-aliases
