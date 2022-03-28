@@ -8,7 +8,7 @@ antigen use oh-my-zsh
 antigen bundles <<EOBUNDLES
     common-aliases
     history
-    osx
+    macos
     compleat
     screen
     ssh-agent
@@ -32,6 +32,8 @@ antigen bundles <<EOBUNDLES
 EOBUNDLES
 antigen theme dieter
 antigen apply
+export PROMPT="$PROMPT
+\$ "
 
 # For tricking python packages into believing they are in macos 10.x to avoid compiling hell
 export SYSTEM_VERSION_COMPAT=1

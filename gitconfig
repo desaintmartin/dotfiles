@@ -1,5 +1,5 @@
 [user]
-	email = cdesaintmartin@wiremind.fr
+	email = cdesaintmartin@wiremind.io
 	name = Cédric de Saint Martin
 	signingkey = 6B55FE19830F4B4FD104783FD0835CB331C4CA8C
 [core]
@@ -49,7 +49,8 @@ tool = FileMerge
 
   # Show files ignored by git:
   ign = ls-files -o -i --exclude-standard
-	automr = push -o merge_request.create -o merge_request.merge_when_pipeline_succeeds -o merge_request.remove_source_branch -u origin HEAD
+  automr = push -o merge_request.create -o merge_request.merge_when_pipeline_succeeds -o merge_request.remove_source_branch -u origin HEAD
+  pf = push -f -u origin HEAD
 [filter "media"]
 	clean = git media clean %f
 	smudge = git media smudge %f
