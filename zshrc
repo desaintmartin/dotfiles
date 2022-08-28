@@ -3,32 +3,34 @@ if [ -f "/usr/share/zsh-antigen/antigen.zsh" ]; then;
 else
   source /usr/local/share/antigen/antigen.zsh
 fi
-antigen use ohmyzsh/ohmyzsh
+antigen use oh-my-zsh
 #antigen theme https://github.com/iam4x/zsh-iterm-touchbar
 antigen bundles <<EOBUNDLES
+    autojump
+    brew
     common-aliases
-    history
-    macos
     compleat
+    docker
+    helm
+    history
+    iterm2
+    kube-ps1
+    kubectl
+    macos
+    pip
+    python
     screen
     ssh-agent
     textmate
-    brew
-    pip
-    python
-    docker
-    kubectl
-    helm
-    autojump
-
-    # Syntax highlighting bundle.
-    zsh-users/zsh-syntax-highlighting
 
     # Fish-like auto suggestions
     zsh-users/zsh-autosuggestions
 
     # Extra zsh completions
     zsh-users/zsh-completions
+
+    # Syntax highlighting bundle.
+    zsh-users/zsh-syntax-highlighting
 EOBUNDLES
 antigen theme dieter
 antigen apply
@@ -51,11 +53,8 @@ export PATH=/usr/local/share/npm/bin:$PATH
 export PATH=/usr/local/opt/gnu-sed/libexec/gnubin:$PATH
 export PATH=/usr/local/opt/curl/bin:$PATH
 export PATH=/Users/cedricdesaintmartin/Documents/Scripts:$PATH
-export PATH=/Users/cedricdesaintmartin/.gem/ruby/1.8/bin:$PATH
 export PATH=/Users/cedric/Documents/Scripts:$PATH
-export PATH=/Users/cedric/.gem/ruby/1.8/bin:$PATH
 export PATH=/Users/cedricdesaintmartin/.cargo/bin:$PATH
-export PATH=/usr/local/Cellar/telepresence/0.100/libexec:$PATH
 
 # node.js
 export NODE_PATH=/usr/local/lib/node:/usr/local/share/npm/lib/node_modules/
@@ -122,22 +121,7 @@ perl -e '$p=shift;open MAPS, "/proc/$p/maps";
 # thefuck
 # eval $(thefuck --alias)
 
-# iTerm2
-source ~/dotfiles/iterm2_shell_integration.zsh
-
 autoload -U +X bashcompinit && bashcompinit
-
-# mayo
-if [ -n "$MAYO_PS1" ]; then
-	PROMPT_COMMAND="mayo() { if [[ \"\$#\" == \"1\" && \"\$1\" == \"port-forward-stop\" ]]; then command mayo port-forward-stop && exit ;  else command mayo \"\$@\" ; fi;}"
-        PS1="$MAYO_PS1"
-	FOO=${MAYO_MPPID:=$(echo $$)}; export MAYO_MPPID
-	echo "$MAYO_WELCOME_MESSAGE"
-fi
-export PS1
-export SHELL
-
-alias mayo="/Users/cedricdesaintmartin/Desktop/Wiremind/devops/mayo/.venv/bin/mayo"
 
 PATH=$PATH:/Users/cedricdesaintmartin/Desktop/Wiremind/devops/cluster-manager/.venv/bin
 PATH=$PATH:/Users/cedric/Desktop/Wiremind/devops/cluster-manager/.venv/bin
@@ -157,3 +141,6 @@ kssh() {
 export WIREMIND_USERNAME=cdesaintmartin
 
 complete -o nospace -C /usr/local/bin/mc mc
+
+alias mayo="/Users/cedricdesaintmartin/Desktop/Wiremind/devops/mayo/.venv/bin/mayo"
+. ~/mayo-complete.sh
