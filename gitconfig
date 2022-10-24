@@ -1,7 +1,7 @@
 [user]
 	email = cdesaintmartin@wiremind.io
 	name = Cédric de Saint Martin
-	signingkey = 6B55FE19830F4B4FD104783FD0835CB331C4CA8C
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF8TvUI0Vyee9ktlfESoyqzZetiLJQg0/yt1dgtRrOJc cdesaintmartin@wiremind.io
 [core]
 	editor = vim
 	autocrlf = input
@@ -71,3 +71,7 @@ tool = FileMerge
 	version = 2
 [credential]
 	helper = osxkeychain
+[commit]
+	gpgsign = true
+[gpg]
+	format = ssh

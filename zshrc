@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 if [ -f "/usr/share/zsh-antigen/antigen.zsh" ]; then;
   source /usr/share/zsh-antigen/antigen.zsh
 else
@@ -20,7 +27,6 @@ antigen bundles <<EOBUNDLES
     pip
     python
     screen
-    ssh-agent
     textmate
 
     # Fish-like auto suggestions
@@ -32,10 +38,8 @@ antigen bundles <<EOBUNDLES
     # Syntax highlighting bundle.
     zsh-users/zsh-syntax-highlighting
 EOBUNDLES
-antigen theme dieter
+antigen theme romkatv/powerlevel10k
 antigen apply
-export PROMPT="$PROMPT
-\$ "
 
 # For tricking python packages into believing they are in macos 10.x to avoid compiling hell
 export SYSTEM_VERSION_COMPAT=1
@@ -76,6 +80,7 @@ alias gd='export BRANCH=master; \
 alias gdu='export BRANCH=master; \
   git rev-parse --verify main > /dev/null 2>&1 && export BRANCH=main; \
   git checkout $BRANCH && git fetch upstream --prune && git branch | grep -v $BRANCH | xargs git branch -D && git reset --hard upstream/$BRANCH'
+alias gpf="git push origin --force HEAD"
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -144,3 +149,6 @@ complete -o nospace -C /usr/local/bin/mc mc
 
 alias mayo="/Users/cedricdesaintmartin/Desktop/Wiremind/devops/mayo/.venv/bin/mayo"
 . ~/mayo-complete.sh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
