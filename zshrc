@@ -128,8 +128,6 @@ perl -e '$p=shift;open MAPS, "/proc/$p/maps";
 
 autoload -U +X bashcompinit && bashcompinit
 
-PATH=$PATH:/Users/cedricdesaintmartin/Desktop/Wiremind/devops/cluster-manager/.venv/bin
-PATH=$PATH:/Users/cedric/Desktop/Wiremind/devops/cluster-manager/.venv/bin
 alias ls=lsd
 
 # Google Cloud

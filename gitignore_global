@@ -1,6 +1,7 @@
 # pyenv
 .python-version
 .idea
+.devcontainer
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
