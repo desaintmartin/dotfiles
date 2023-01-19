@@ -27,7 +27,6 @@ antigen bundles <<EOBUNDLES
     pip
     python
     screen
-    textmate
 
     # Fish-like auto suggestions
     zsh-users/zsh-autosuggestions
@@ -40,9 +39,6 @@ antigen bundles <<EOBUNDLES
 EOBUNDLES
 antigen theme romkatv/powerlevel10k
 antigen apply
-
-# For tricking python packages into believing they are in macos 10.x to avoid compiling hell
-export SYSTEM_VERSION_COMPAT=1
 
 # Setting for the new UTF-8 terminal support in Lion
 export LC_CTYPE=en_US.UTF-8
@@ -150,3 +146,5 @@ alias mayo="/Users/cedricdesaintmartin/Desktop/Wiremind/devops/mayo/.venv/bin/ma
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+ssh-add ~/.ssh/id_ed25519
