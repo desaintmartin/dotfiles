@@ -8,10 +8,8 @@ brew --version || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/H
 brew install youtube-dl autojump pyenv zsh tmux kubernetes-cli kubernetes-helm gnu-sed vim htop antigen thefuck mas nodejs yarn mosh lsd krew
 
 brew install --cask \
-  amethyst \
   android-platform-tools \
   bettertouchtool \
-  buttercup \
   clipy \
   console \
   cyberduck \
@@ -28,22 +26,18 @@ brew install --cask \
   iterm2 \
   kubernetic \
   kubecontext \
-  macdown \
-  microsoft-teams \
+  launchcontrol \
   nextcloud \
-  pycharm \
   quicksilver \
   rectangle \
   sensiblesidebuttons \
-  spectacle \
   textmate \
   the-unarchiver \
   visual-studio-code \
   vlc \
-  webex-meetings \
+  uninstallpkg \
   wireshark \
-  xquartz \
-  zoom
+  xquartz
 brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font
 
@@ -63,4 +57,3 @@ fi
 ZSH_SHELL="/usr/local/bin/zsh"
 [ -n "$(grep $ZSH_SHELL /etc/shells)" ] || echo "\n/usr/local/bin/zsh" | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/zsh
-

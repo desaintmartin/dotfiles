@@ -40,6 +40,9 @@ EOBUNDLES
 antigen theme romkatv/powerlevel10k
 antigen apply
 
+# For tricking python packages into believing they are in macos 10.x to avoid compiling hell
+#export SYSTEM_VERSION_COMPAT=1
+
 # Setting for the new UTF-8 terminal support in Lion
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -76,7 +79,7 @@ alias gd='export BRANCH=master; \
 alias gdu='export BRANCH=master; \
   git rev-parse --verify main > /dev/null 2>&1 && export BRANCH=main; \
   git checkout $BRANCH && git fetch upstream --prune && git branch | grep -v $BRANCH | xargs git branch -D && git reset --hard upstream/$BRANCH'
-alias gpf="git push origin --force HEAD"
+alias gpf="git push origin --force --no-verify HEAD"
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -119,10 +122,11 @@ perl -e '$p=shift;open MAPS, "/proc/$p/maps";
           print((split /\0{2,}/,$c)[-1])' "$1" | tr \\0 \\n | head
 }
 
-# thefuck
-# eval $(thefuck --alias)
+alias brew-update="brew update && brew upgrade && brew upgrade --cask && brew autoremove && brew cleanup"
 
+source <(kubectl completion zsh)
 autoload -U +X bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
 
 alias ls=lsd
 
@@ -134,14 +138,21 @@ source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 kssh() {
   IP=$(kubectl get nodes -o custom-columns='ip:status.addresses[0].address' --no-headers $1)
+  ssh -p 4224 core@$IP $@[2,-1]
+}
+kssh2() {
+  IP=$(kubectl get nodes -o custom-columns='ip:status.addresses[0].address' --no-headers $1)
   ssh core@$IP $@[2,-1]
 }
+export HELM_CONFIG_HOME="/Users/cedricdesaintmartin/Library/Preferences/helm"
 
 export WIREMIND_USERNAME=cdesaintmartin
 
 complete -o nospace -C /usr/local/bin/mc mc
 
-alias mayo="/Users/cedricdesaintmartin/Desktop/Wiremind/devops/mayo/.venv/bin/mayo"
+# mayo
+alias mayo=/Users/cedricdesaintmartin/Desktop/Wiremind/devops/mayo/.venv/bin/mayo
+alias cluster-manager=/Users/cedricdesaintmartin/Desktop/Wiremind/devops/cluster-manager/.venv/bin/cluster-manager
 . ~/mayo-complete.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
