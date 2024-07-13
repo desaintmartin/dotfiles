@@ -5,40 +5,44 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-if [ -f "/usr/share/zsh-antigen/antigen.zsh" ]; then;
-  source /usr/share/zsh-antigen/antigen.zsh
-else
-  source /usr/local/share/antigen/antigen.zsh
-fi
-antigen use oh-my-zsh
-#antigen theme https://github.com/iam4x/zsh-iterm-touchbar
-antigen bundles <<EOBUNDLES
-    autojump
-    brew
-    common-aliases
-    compleat
-    docker
-    helm
-    history
-    iterm2
-    kube-ps1
-    kubectl
-    macos
-    pip
-    python
-    screen
+autoload -U +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
 
-    # Fish-like auto suggestions
+source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
+source <(antidote init)
+
+antidote bundle ohmyzsh/ohmyzsh
+
+antidote bundle <<EOBUNDLES
+    #autojump
+    # brew
+    # common-aliases
+    # compleat
+    # docker
+    # helm
+    # history
+    # iterm2
+    # kubectl
+    # kube-ps1
+    # macos
+    # pip
+    # python
+    # screen
+
+    # popular fish-like plugins
+    mattmc3/zfunctions
     zsh-users/zsh-autosuggestions
+    zdharma-continuum/fast-syntax-highlighting kind:defer
+    zsh-users/zsh-history-substring-search
 
     # Extra zsh completions
     zsh-users/zsh-completions
 
     # Syntax highlighting bundle.
     zsh-users/zsh-syntax-highlighting
+
+    romkatv/powerlevel10k
 EOBUNDLES
-antigen theme romkatv/powerlevel10k
-antigen apply
 
 # For tricking python packages into believing they are in macos 10.x to avoid compiling hell
 #export SYSTEM_VERSION_COMPAT=1
@@ -51,26 +55,27 @@ export HISTSIZE=1000000         # Increases size of history
 export SAVEHIST=1000000
 
 # Non-standard paths :
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-export PATH=/usr/local/share/npm/bin:$PATH
-export PATH=/usr/local/opt/gnu-sed/libexec/gnubin:$PATH
-export PATH=/usr/local/opt/curl/bin:$PATH
+export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
+export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
+export PATH=/opt/homebrew/share/npm/bin:$PATH
+export PATH=/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH
+export PATH=/opt/homebrew/opt/curl/bin:$PATH
 export PATH=/Users/cedricdesaintmartin/Documents/Scripts:$PATH
 export PATH=/Users/cedric/Documents/Scripts:$PATH
 export PATH=/Users/cedricdesaintmartin/.cargo/bin:$PATH
 
 # node.js
-export NODE_PATH=/usr/local/lib/node:/usr/local/share/npm/lib/node_modules/
+export NODE_PATH=/opt/homebrew/lib/node:/opt/homebrew/share/npm/lib/node_modules/
 
 # SSL
-export LDFLAGS="-L/usr/local/opt/openssl/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl/include"
+export LDFLAGS="-L/opt/homebrew/opt/openssl/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/openssl/include"
 
 # Go
 #export GOPATH=$HOME/go
 
 # git alias
-alias git-gui="/usr/local/git/share/git-gui/lib/Git\ Gui.app/Contents/MacOS/Wish"
+alias git-gui="/opt/homebrew/git/share/git-gui/lib/Git\ Gui.app/Contents/MacOS/Wish"
 alias ga="git commit --amend -a -C HEAD"
 alias gr="git rebase -i origin/master"
 alias gd='export BRANCH=master; \
@@ -131,24 +136,25 @@ autoload -Uz compinit && compinit
 alias ls=lsd
 
 # Google Cloud
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+source '/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+source '/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 
 # kubernetes
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-kssh() {
+ksshgra3() {
   IP=$(kubectl get nodes -o custom-columns='ip:status.addresses[0].address' --no-headers $1)
   ssh -p 4224 core@$IP $@[2,-1]
 }
-kssh2() {
-  IP=$(kubectl get nodes -o custom-columns='ip:status.addresses[0].address' --no-headers $1)
+
+kssh() {
+  IP=$(kubectl get nodes -o jsonpath='{.status.addresses[?(@.type=="InternalIP")].address}' --no-headers $1)
   ssh core@$IP $@[2,-1]
 }
 export HELM_CONFIG_HOME="/Users/cedricdesaintmartin/Library/Preferences/helm"
 
 export WIREMIND_USERNAME=cdesaintmartin
 
-complete -o nospace -C /usr/local/bin/mc mc
+complete -o nospace -C /opt/homebrew/bin/mc mc
 
 # mayo
 alias mayo=/Users/cedricdesaintmartin/Desktop/Wiremind/devops/mayo/.venv/bin/mayo
@@ -158,4 +164,4 @@ alias cluster-manager=/Users/cedricdesaintmartin/Desktop/Wiremind/devops/cluster
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-ssh-add ~/.ssh/id_ed25519
+#ssh-add ~/.ssh/id_ed25519

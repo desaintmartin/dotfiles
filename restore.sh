@@ -39,11 +39,11 @@ done
 #ln -s $dir/ssh_config ~/.ssh/config
 
 # Install common tools and YouCompleteMe dependencies
-if [ -n $(which apt-get) ]; then
-  sudo apt-get update
-  sudo apt-get install screen vim git htop iotop iftop zsh build-essential cmake python-dev curl mosh zsh-antigen python-pkg-resources thefuck
-  chsh -s /usr/bin/zsh
-fi
+# if [ -n $(which apt-get) ]; then
+#   sudo apt-get update
+#   sudo apt-get install screen vim git htop iotop iftop zsh build-essential cmake python-dev curl mosh zsh-antigen python-pkg-resources thefuck
+#   chsh -s /usr/bin/zsh
+# fi
 
 # Configure vim, thank you NeoBundle!
 vim +NeoBundleInstall +qall
@@ -55,4 +55,3 @@ zsh /usr/share/zsh-antigen/antigen.zsh reset
 
 echo "Don't forget to manually copy the .ssh directory."
 echo "Don't forget to manually copy the .netrc directory."
-

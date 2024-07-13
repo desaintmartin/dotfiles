@@ -4,25 +4,22 @@ set -e
 set -x
 
 # Homebrew
-brew --version || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install youtube-dl autojump pyenv zsh tmux kubernetes-cli kubernetes-helm gnu-sed vim htop antigen thefuck mas nodejs yarn mosh lsd krew
+/opt/homebrew/bin/brew --version || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+/opt/homebrew/bin/brew install youtube-dl autojump pyenv zsh tmux kubernetes-cli kubernetes-helm gnu-sed vim htop antidote thefuck mas nodejs yarn mosh lsd krew
 
-brew install --cask \
+/opt/homebrew/bin/brew install --adopt \
   android-platform-tools \
-  bettertouchtool \
   clipy \
   console \
   cyberduck \
   docker \
+  firefox@developer-edition \
   gimp \
   github \
   google-chrome \
   google-cloud-sdk \
-  google-drive-file-stream \
   grandperspective \
-  homebrew/cask-drivers/logitech-options \
-  homebrew/cask-versions/firefox-developer-edition \
-  istat-menus \
+  logitech-options \
   iterm2 \
   kubernetic \
   kubecontext \
@@ -31,15 +28,16 @@ brew install --cask \
   quicksilver \
   rectangle \
   sensiblesidebuttons \
+  shellcheck \
+  stats \
   textmate \
   the-unarchiver \
   visual-studio-code \
   vlc \
   uninstallpkg \
   wireshark \
-  xquartz
-brew tap homebrew/cask-fonts
-brew install --cask font-hack-nerd-font
+  xquartz \
+  font-hack-nerd-font
 
 #mas install 497799835 # Xcode
 
@@ -54,6 +52,8 @@ fi
 
 # ./restore.sh
 
-ZSH_SHELL="/usr/local/bin/zsh"
-[ -n "$(grep $ZSH_SHELL /etc/shells)" ] || echo "\n/usr/local/bin/zsh" | sudo tee -a /etc/shells
-chsh -s /usr/local/bin/zsh
+ZSH_SHELL="/opt/homebrew/bin/zsh"
+[ -n "$(grep $ZSH_SHELL /etc/shells)" ] || echo "\n/opt/homebrew/bin/zsh" | sudo tee -a /etc/shells
+chsh -s /opt/homebrew/bin/zsh
+
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519
