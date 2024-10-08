@@ -14,20 +14,19 @@ source <(antidote init)
 antidote bundle ohmyzsh/ohmyzsh
 
 antidote bundle <<EOBUNDLES
-    #autojump
-    # brew
-    # common-aliases
-    # compleat
-    # docker
-    # helm
-    # history
-    # iterm2
-    # kubectl
-    # kube-ps1
-    # macos
-    # pip
-    # python
-    # screen
+    ohmyzsh/ohmyzsh path:plugins/autojump/autojump.plugin.zsh
+    ohmyzsh/ohmyzsh path:plugins/brew/brew.plugin.zsh
+    ohmyzsh/ohmyzsh path:plugins/common-aliases/common-aliases.plugin.zsh
+    ohmyzsh/ohmyzsh path:plugins/compleat/compleat.plugin.zsh
+    ohmyzsh/ohmyzsh path:plugins/helm/helm.plugin.zsh
+    ohmyzsh/ohmyzsh path:plugins/history/history.plugin.zsh
+    ohmyzsh/ohmyzsh path:plugins/iterm2/iterm2.plugin.zsh
+    ohmyzsh/ohmyzsh path:plugins/kubectl/kubectl.plugin.zsh
+    ohmyzsh/ohmyzsh path:plugins/kube-ps1/kube-ps1.plugin.zsh
+    ohmyzsh/ohmyzsh path:plugins/macos/macos.plugin.zsh
+    ohmyzsh/ohmyzsh path:plugins/pip/pip.plugin.zsh
+    ohmyzsh/ohmyzsh path:plugins/python/python.plugin.zsh
+    ohmyzsh/ohmyzsh path:plugins/screen/screen.plugin.zsh
 
     # popular fish-like plugins
     mattmc3/zfunctions
@@ -138,6 +137,9 @@ alias ls=lsd
 # Google Cloud
 source '/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
 source '/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+
+# Docker
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
 
 # kubernetes
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
