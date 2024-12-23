@@ -5,39 +5,73 @@ set -x
 
 # Homebrew
 /opt/homebrew/bin/brew --version || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-/opt/homebrew/bin/brew install youtube-dl autojump pyenv zsh tmux kubernetes-cli kubernetes-helm gnu-sed vim htop antidote thefuck mas nodejs yarn mosh lsd krew
+/opt/homebrew/bin/brew install \
+  antidote \
+  autojump \
+  awscli \
+  buildkit \
+  docker \
+  glab \
+  gnu-sed \
+  helm \
+  helmfile \
+  htop \
+  istioctl \
+  jq \
+  krew \
+  kubernetes-cli \
+  lsd \
+  mas \
+  mosh \
+  mtr \
+  node \
+  pwgen \
+  pyenv \
+  thefuck \
+  tmux \
+  uv \
+  vim \
+  wireshark \
+  yq \
+  zsh
 
 /opt/homebrew/bin/brew install --adopt \
   android-platform-tools \
+  bitwarden \
   clipy \
   console \
   cyberduck \
-  docker \
   firefox@developer-edition \
+  font-hack-nerd-font \
   gimp \
   github \
   google-chrome \
   google-cloud-sdk \
   grandperspective \
-  logitech-options \
   iterm2 \
-  kubernetic \
+  itsycal \
   kubecontext \
+  kubernetic \
   launchcontrol \
+  lens \
+  logitech-options \
+  lulu \
   nextcloud \
+  notion-calendar \
   quicksilver \
   rectangle \
   sensiblesidebuttons \
+  signal \
   shellcheck \
+  slack \
   stats \
+  teamviewer \
   textmate \
   the-unarchiver \
+  uninstallpkg \
   visual-studio-code \
   vlc \
-  uninstallpkg \
-  wireshark \
-  xquartz \
-  font-hack-nerd-font
+  xquartz
 
 #mas install 497799835 # Xcode
 
@@ -49,8 +83,25 @@ if [ ! -f "$PREFERENCE_DESTINATION" ]; then
   ln -s "$PREFERENCE_SOURCE" "$PREFERENCE_DESTINATION"
 fi
 
+PREFERENCE_SOURCE=~/dotfiles/mac/com.blacktree.Quicksilver.plist
+PREFERENCE_DESTINATION=~/Library/Preferences/com.blacktree.Quicksilver.plist
+if [ ! -f "$PREFERENCE_DESTINATION" ]; then
+  ln -s "$PREFERENCE_SOURCE" "$PREFERENCE_DESTINATION"
+fi
 
-# ./restore.sh
+PREFERENCE_SOURCE=~/dotfiles/mac/com.knollsoft.Rectangle.plist
+PREFERENCE_DESTINATION=~/Library/Preferences/com.knollsoft.Rectangle.plist
+if [ ! -f "$PREFERENCE_DESTINATION" ]; then
+  ln -s "$PREFERENCE_SOURCE" "$PREFERENCE_DESTINATION"
+fi
+
+PREFERENCE_SOURCE=~/dotfiles/mac/p10k.zsh
+PREFERENCE_DESTINATION=~/.p10k.zsh
+if [ ! -f "$PREFERENCE_DESTINATION" ]; then
+  ln -s "$PREFERENCE_SOURCE" "$PREFERENCE_DESTINATION"
+fi
+
+./restore.sh
 
 ZSH_SHELL="/opt/homebrew/bin/zsh"
 [ -n "$(grep $ZSH_SHELL /etc/shells)" ] || echo "\n/opt/homebrew/bin/zsh" | sudo tee -a /etc/shells
