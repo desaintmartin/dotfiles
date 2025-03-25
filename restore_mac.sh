@@ -26,7 +26,6 @@ set -x
   mtr \
   node \
   pwgen \
-  pyenv \
   thefuck \
   tmux \
   uv \

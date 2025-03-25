@@ -27,6 +27,7 @@ antidote bundle <<EOBUNDLES
     ohmyzsh/ohmyzsh path:plugins/pip/pip.plugin.zsh
     ohmyzsh/ohmyzsh path:plugins/python/python.plugin.zsh
     ohmyzsh/ohmyzsh path:plugins/screen/screen.plugin.zsh
+    ohmyzsh/ohmyzsh path:plugins/uv/uv.plugin.zsh
 
     # popular fish-like plugins
     mattmc3/zfunctions
@@ -85,15 +86,6 @@ alias gdu='export BRANCH=master; \
   git checkout $BRANCH && git fetch upstream --prune && git branch | grep -v $BRANCH | xargs git branch -D && git reset --hard upstream/$BRANCH'
 alias gpf="git push origin --force --no-verify HEAD"
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-# Load pyenv into the shell by adding
-# the following to ~/.zshrc:
-eval "$(pyenv init -)"
-#export PATH="$HOME/.pyenv/shims:$PATH"
-
 # python venv
 function jv() {
   j $1
@@ -143,10 +135,6 @@ export DOCKER_DEFAULT_PLATFORM=linux/amd64
 
 # kubernetes
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-ksshgra3() {
-  IP=$(kubectl get nodes -o custom-columns='ip:status.addresses[0].address' --no-headers $1)
-  ssh -p 4224 core@$IP $@[2,-1]
-}
 
 kssh() {
   IP=$(kubectl get nodes -o jsonpath='{.status.addresses[?(@.type=="InternalIP")].address}' --no-headers $1)
